@@ -9,7 +9,12 @@ const CaterogiesWrapper = () => {
 	return (
 		<CategoriesContainer>
 			{categories.map((category) => (
-				<CategoryCard key={category.id} {...category} />
+				<CategoryCard
+					key={category.id}
+					category={category.genre}
+					img={category.img}
+					title={category.title}
+				/>
 			))}
 		</CategoriesContainer>
 	);

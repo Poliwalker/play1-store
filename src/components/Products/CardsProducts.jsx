@@ -6,15 +6,24 @@ import { useSelector } from 'react-redux';
 
 const CardsProducts = () => {
 	let products = useSelector((state) => state.product.products);
+	const selectCategory = useSelector(
+		(state) => state.categories.selectedCategories
+	);
 
-	// const totalProducts = useSelector((state) => state.products.totalProducts);
+	const renderSelectedCategory = () => {
+		return selectCategory.map((game) => {
+			return <CardProduct key={game.id} {...game} />;
+		});
+	};
 
 	return (
 		<>
 			<CardsWrapper>
-				{Object.entries(products).map(([, games]) =>
-					games.map((game) => <CardProduct key={game.id} {...game} />)
-				)}
+				{selectCategory == null
+					? Object.entries(products).map(([, games]) =>
+							games.map((game) => <CardProduct key={game.id} {...game} />)
+					  )
+					: renderSelectedCategory()}
 			</CardsWrapper>
 			<CardButtonsWrapper>
 				<ButtonProducts>

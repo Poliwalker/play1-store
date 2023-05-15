@@ -1,9 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { Genre } from '../../data/categories';
+import { gamesPlay } from '../../data/dataGames';
 
 const INITIAL_STATE = {
 	categories: Genre,
 	selectedCategories: null,
+	products: gamesPlay,
 };
 
 export const categoriesSlice = createSlice({
@@ -11,11 +13,12 @@ export const categoriesSlice = createSlice({
 	initialState: INITIAL_STATE,
 	reducers: {
 		selectCategories: (state, action) => {
-			return {
-				...state,
-				selectedCategories:
-					action.payload !== state.selectedCategories ? action.payload : null,
-			};
+			{
+				const categoryFiltered = state.products.filter(
+					(game) => game.genre == action.payload
+				);
+				state.selectedCategories = categoryFiltered;
+			}
 		},
 		categories: (state) => {
 			return state;

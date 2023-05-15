@@ -8,8 +8,8 @@ export const Genre = [
 	{
 		id: 2,
 		img: 'https://img2.freepng.es/20180327/tcw/kisspng-resident-evil-4-resident-evil-2-resident-evil-6-re-leon-5aba05b116ede5.9055826215221405930939.jpg',
-		title: 'aventuras',
-		genre: 'eventuras',
+		title: 'aventura',
+		genre: 'aventura',
 	},
 	{
 		id: 3,

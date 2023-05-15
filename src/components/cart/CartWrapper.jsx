@@ -14,7 +14,6 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { resetCart, toggleHidden } from '../../redux/cartSlice/CartSlice';
-import { FaTrashAlt } from 'react-icons/fa';
 
 const CartWrapper = () => {
 	const dispatch = useDispatch();
