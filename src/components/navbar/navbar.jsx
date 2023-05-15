@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
 	HeaderStyle,
 	LogoContainStyle,
@@ -8,13 +8,18 @@ import {
 	NavLinkIcons,
 	IconUser,
 	LinkStyle,
+	BarsMenuStyle,
 } from './navbarStyle';
 import { useNavigate } from 'react-router-dom';
 import IconCart from '../../componentsUI/IconCart/IconCart';
 import CartWrapper from '../cart/CartWrapper';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleBars } from '../../redux/barsSlice/barsSlice';
 
 const navbar = () => {
 	const navigate = useNavigate();
+
+	const dispatch = useDispatch();
 
 	return (
 		<HeaderStyle>
@@ -27,6 +32,7 @@ const navbar = () => {
 
 				<p>Play 1 AR</p>
 			</LogoContainStyle>
+			<BarsMenuStyle onClick={() => dispatch(toggleBars())} />
 			<NavStyle>
 				<NavLinkStyle>
 					<LinkStyle to="/">Inicio</LinkStyle>

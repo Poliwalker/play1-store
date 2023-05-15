@@ -54,4 +54,7 @@ export const Section1ImgContainer = styled.div`
 
 export const Section1Img = styled.img`
 	width: 800px;
+	@media screen and (max-width: 768px) {
+		width: 100%;
+	}
 `;

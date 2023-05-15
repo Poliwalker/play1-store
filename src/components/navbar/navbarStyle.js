@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { BiCartAdd } from 'react-icons/bi';
 import { FaUserCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { FaBars } from 'react-icons/fa';
 
 export const HeaderStyle = styled.header`
 	width: 100%;
@@ -44,6 +45,15 @@ export const NavLinkStyle = styled.ul`
 	align-items: center;
 	justify-content: center;
 	gap: 20px;
+
+	@media screen and (max-width: 768px) {
+		flex-direction: column;
+		position: absolute;
+		top: 64px;
+		left: 0;
+		width: 100%;
+		background-color: var(--primary-color);
+	}
 `;
 
 export const NavLinkIcons = styled.ul`
@@ -73,4 +83,14 @@ export const IconUser = styled(FaUserCircle)`
 	font-size: 1.5rem;
 	font-weight: 600;
 	cursor: pointer;
+`;
+
+export const BarsMenuStyle = styled(FaBars)`
+	font-size: 1.5rem;
+	color: var(--primary-color);
+	cursor: pointer;
+	display: none;
+	@media screen and (max-width: 768px) {
+		display: block;
+	}
 `;
