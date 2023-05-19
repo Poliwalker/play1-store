@@ -47,6 +47,7 @@ export const NavLinkStyle = styled.ul`
 	gap: 20px;
 
 	@media screen and (max-width: 768px) {
+		display: ${(props) => (props.isOpenMenu ? 'flex' : 'none')};
 		flex-direction: column;
 		position: absolute;
 		top: 64px;

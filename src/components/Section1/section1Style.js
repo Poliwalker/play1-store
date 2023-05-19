@@ -7,6 +7,7 @@ export const Section1Container = styled.div`
 	background-color: #f5f7fa;
 	color: var(--dark-color);
 	padding: 5rem 1rem;
+	width: 100%;
 `;
 
 export const Section1Presentation = styled.div`

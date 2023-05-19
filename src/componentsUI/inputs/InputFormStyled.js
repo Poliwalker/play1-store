@@ -5,28 +5,18 @@ export const InputContainerStyle = styled.div`
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: flex-start;
-	width: 40%;
-	margin: 1rem;
-`;
-
-export const LabelStyle = styled.label`
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: flex-start;
-	font-size: 1.2rem;
-	width: 40%;
+	width: 100%;
+	margin: 0.5rem 0;
 `;
 
 export const InputStyle = styled.input`
-	padding: 1rem 2.3rem;
+	width: 100%;
 	border-radius: 10px;
 	background-color: var(--light-color);
+	color: var(--dark-color);
 	border-radius: 8px;
 	height: 30px;
 	padding: 0.5rem 1rem;
-	color: white;
-	width: 70%;
 `;
 
 export const InputErrorStyle = styled.p`

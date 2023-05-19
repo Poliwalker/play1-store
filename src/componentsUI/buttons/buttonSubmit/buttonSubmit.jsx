@@ -1,8 +1,12 @@
 import React from 'react';
 import { ButtonSubmit } from './buttonSubmitStyle';
 
-const buttonSubmit = ({ children }) => {
-	return <ButtonSubmit>{children}</ButtonSubmit>;
+const ButtonSubmit = ({ children, onClick, disabled = false }) => {
+	return (
+		<ButtonSubmit type="submit" disabled={disabled} onClick={onClick}>
+			{children}
+		</ButtonSubmit>
+	);
 };
 
-export default buttonSubmit;
+export default ButtonSubmit;

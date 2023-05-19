@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
 	HeaderStyle,
 	LogoContainStyle,
@@ -15,15 +15,19 @@ import IconCart from '../../componentsUI/IconCart/IconCart';
 import CartWrapper from '../cart/CartWrapper';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleBars } from '../../redux/barsSlice/barsSlice';
+import Login from '../login/Login';
+import { loginToggle } from '../../redux/loginSlice/loginSlice';
 
 const navbar = () => {
 	const navigate = useNavigate();
 
 	const dispatch = useDispatch();
+	const isOpenMenu = useSelector((state) => state.bars.bars);
 
 	return (
 		<HeaderStyle>
 			<CartWrapper />
+			<Login />
 			<LogoContainStyle className="logo" onClick={() => navigate('/')}>
 				<LogoStyle
 					src="https://icon-library.com/images/playstation-logo-icon/playstation-logo-icon-15.jpg"
@@ -34,7 +38,7 @@ const navbar = () => {
 			</LogoContainStyle>
 			<BarsMenuStyle onClick={() => dispatch(toggleBars())} />
 			<NavStyle>
-				<NavLinkStyle>
+				<NavLinkStyle isOpenMenu={isOpenMenu}>
 					<LinkStyle to="/">Inicio</LinkStyle>
 					<LinkStyle to="/products-store">Tienda</LinkStyle>
 					<LinkStyle to="/location">ubicacion</LinkStyle>
@@ -42,7 +46,7 @@ const navbar = () => {
 				</NavLinkStyle>
 				<NavLinkIcons>
 					<IconCart />
-					<IconUser />
+					<IconUser onClick={() => dispatch(loginToggle())} />
 				</NavLinkIcons>
 			</NavStyle>
 		</HeaderStyle>

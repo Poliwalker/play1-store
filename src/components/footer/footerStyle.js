@@ -43,6 +43,10 @@ export const FooterLinksLegals = styled.div`
 	justify-content: space-between;
 	border-top: 1px solid grey;
 	padding-top: 20px;
+	@media (max-width: 578px) {
+		width: 100%;
+		flex-direction: column;
+	}
 `;
 
 export const UbicationFooter = styled.div`
@@ -54,4 +58,5 @@ export const ListLegals = styled.ul`
 	display: flex;
 	justify-content: space-around;
 	gap: 20px;
+	width: 100%;
 `;

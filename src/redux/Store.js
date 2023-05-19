@@ -6,12 +6,14 @@ import cartReducer from './cartSlice/CartSlice';
 import productReducer from './productsSlice/productsSlice';
 import categoriesReducer from './categoriesSlice/categoriesSlice';
 import barsReducer from './barsSlice/barsSlice';
+import loginReducer from './loginSlice/loginSlice';
 
 const reducers = combineReducers({
 	cart: cartReducer,
 	product: productReducer,
 	categories: categoriesReducer,
 	bars: barsReducer,
+	login: loginReducer,
 });
 
 const persistConfig = {

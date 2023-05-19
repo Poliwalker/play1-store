@@ -15,6 +15,10 @@ export const CardsWrapperStyle = styled.div`
 	flex-direction: column;
 	justify-content: space-around;
 	padding: 20px;
+
+	@media screen and (max-width: 768px) {
+		width: 100%;
+	}
 `;
 
 export const ClearCartContainer = styled.div`

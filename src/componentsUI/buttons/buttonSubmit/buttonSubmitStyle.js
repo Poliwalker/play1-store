@@ -10,4 +10,9 @@ export const ButtonSubmit = styled(motion.button)`
 	font-size: 1.2rem;
 	font-weight: 600;
 	cursor: pointer;
+
+	&:disabled {
+		cursor: not-allowed;
+		opacity: 0.5;
+	}
 `;
