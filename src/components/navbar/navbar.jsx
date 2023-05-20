@@ -17,12 +17,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toggleBars } from '../../redux/barsSlice/barsSlice';
 import Login from '../login/Login';
 import { loginToggle } from '../../redux/loginSlice/loginSlice';
+import { toggleHidden } from '../../redux/cartSlice/CartSlice';
 
 const navbar = () => {
 	const navigate = useNavigate();
 
 	const dispatch = useDispatch();
 	const isOpenMenu = useSelector((state) => state.bars.bars);
+	const isLoginOpen = useSelector((state) => state.login.login);
+	const isCartOpen = useSelector(state => state.cart.hidden);
+
+	const handleOpenUser = () => {
+		dispatch(loginToggle());
+		if(!isCartOpen) dispatch(toggleHidden());
+	}
 
 	return (
 		<HeaderStyle>
@@ -46,7 +54,7 @@ const navbar = () => {
 				</NavLinkStyle>
 				<NavLinkIcons>
 					<IconCart />
-					<IconUser onClick={() => dispatch(loginToggle())} />
+					<IconUser onClick={() => handleOpenUser()} />
 				</NavLinkIcons>
 			</NavStyle>
 		</HeaderStyle>

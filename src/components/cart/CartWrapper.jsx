@@ -14,6 +14,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { resetCart, toggleHidden } from '../../redux/cartSlice/CartSlice';
+import { loginToggle } from '../../redux/loginSlice/loginSlice';
 
 const CartWrapper = () => {
 	const dispatch = useDispatch();
@@ -27,9 +28,9 @@ const CartWrapper = () => {
 
 	const { cartProduct, send } = useSelector((state) => state.cart);
 
-	const totalPrice = cartProduct.reduce((acc, item) => {
+	const totalPrice = cartProduct ? cartProduct.reduce((acc, item) => {
 		return acc + item.price * item.quantity;
-	}, 0);
+	}, 0) : [];
 
 	return (
 		<>
@@ -41,7 +42,7 @@ const CartWrapper = () => {
 
 					<h1>Tus Productos son...</h1>
 					<CartCardsContainer>
-						{cartProduct.length ? (
+						{cartProduct ? (
 							cartProduct.map((item) => <CardCart key={item.id} {...item} />)
 						) : (
 							<p>no hay productos en el carrito</p>

@@ -10,10 +10,25 @@ import InputForm from '../../componentsUI/inputs/InputForm';
 import { ButtonSubmit } from '../../componentsUI/buttons/buttonSubmit/buttonSubmitStyle';
 import { loginInitialValues } from '../../formik/initialValues';
 import { loginValidationSchema } from '../../formik/validationSchema';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleHidden } from '../../redux/cartSlice/CartSlice';
+import { loginToggle } from '../../redux/loginSlice/loginSlice';
 
 const Login = () => {
 	const isLoginOpen = useSelector((state) => state.login.login);
+	const isCartOpen = useSelector(state => state.cart.hidden);
+
+    const dispatch = useDispatch();
+
+	const handleSubmit = () => {
+		if(isCartOpen){
+			dispatch(toggleHidden())
+		    dispatch(loginToggle())
+		} else {
+			dispatch(loginToggle())
+		}
+	}
+
 
 	return (
 		<LoginWrapper isLoginOpen={isLoginOpen}>
@@ -21,9 +36,7 @@ const Login = () => {
 			<Formik
 				initialValues={loginInitialValues}
 				validationSchema={loginValidationSchema}
-				onSubmit={(values) => {
-					console.log(values);
-				}}
+				onSubmit={() => handleSubmit() } // cambiar dispatch por dispatch de logins
 			>
 				<LoginForm>
 					<InputForm
