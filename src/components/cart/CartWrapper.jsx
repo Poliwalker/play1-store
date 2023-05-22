@@ -14,7 +14,6 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { resetCart, toggleHidden } from '../../redux/cartSlice/CartSlice';
-import { loginToggle } from '../../redux/loginSlice/loginSlice';
 
 const CartWrapper = () => {
 	const dispatch = useDispatch();
@@ -28,9 +27,18 @@ const CartWrapper = () => {
 
 	const { cartProduct, send } = useSelector((state) => state.cart);
 
-	const totalPrice = cartProduct ? cartProduct.reduce((acc, item) => {
-		return acc + item.price * item.quantity;
-	}, 0) : [];
+	const totalPrice = cartProduct
+		? cartProduct.reduce((acc, item) => {
+				return acc + item.price * item.quantity;
+		  }, 0)
+		: [];
+
+	const finishBuy = () => {
+		window.confirm('¿Estas seguro de finalizar la compra?');
+		alert('Gracias por tu compra');
+		dispatch(resetCart());
+		dispatch(toggleHidden());
+	};
 
 	return (
 		<>
@@ -62,7 +70,9 @@ const CartWrapper = () => {
 							<p>{totalPrice + send}</p>
 						</TotalPayStyle>
 					</CartTotalWrapper>
-					<ButtonFinishBuy>Finalizar Compra</ButtonFinishBuy>
+					<ButtonFinishBuy onClick={() => finishBuy()}>
+						Finalizar Compra
+					</ButtonFinishBuy>
 				</CardsWrapperStyle>
 			)}
 		</>

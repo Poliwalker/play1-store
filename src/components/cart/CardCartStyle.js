@@ -9,7 +9,8 @@ export const CardsWrapperStyle = styled.div`
 	z-index: 100;
 	width: 435px;
 	height: calc(85vh - 64px);
-	background-color: #f1f1f1;
+	background-color: rgba(29, 188, 228, 0.85);
+	box-shadow: 3px 1px 14px 6px #c2c2c2, 5px 5px 10px 1px #000;
 	border-radius: 5px;
 	display: flex;
 	flex-direction: column;
@@ -22,7 +23,7 @@ export const CardsWrapperStyle = styled.div`
 `;
 
 export const ClearCartContainer = styled.div`
-	background-color: red;
+	background-color: #ffffff;
 	width: 50px;
 	height: 50px;
 	padding: 2px;

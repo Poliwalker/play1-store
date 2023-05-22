@@ -8,20 +8,22 @@ import { toggleHidden } from '../../redux/cartSlice/CartSlice';
 import { loginToggle } from '../../redux/loginSlice/loginSlice';
 
 const IconCart = () => {
-	const { cartItems } = useSelector(state => state.cart)
-	const loginStateOpen = useSelector(state => state.login.login);
-	const totalCartItem = cartItems ? cartItems.reduce((acc, item) => (acc += item.quantity),0) : [];
+	const { cartProduct } = useSelector((state) => state.cart);
+	const loginStateOpen = useSelector((state) => state.login.login);
+	const totalCartItem = cartProduct.reduce((acc, item) => {
+		return acc + item.quantity;
+	}, 0);
 
 	const dispatch = useDispatch();
 
 	const handleOpenCart = () => {
-		if(loginStateOpen){
-			dispatch(toggleHidden())
-		    dispatch(loginToggle())
+		if (loginStateOpen) {
+			dispatch(toggleHidden());
+			dispatch(loginToggle());
 		} else {
-			dispatch(toggleHidden())
+			dispatch(toggleHidden());
 		}
-	}
+	};
 
 	return (
 		<IconCartContainer onClick={() => handleOpenCart()}>
