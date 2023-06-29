@@ -5,8 +5,8 @@ import {
 	CardTitle,
 	CardWrapper,
 	IconCardCart,
+	ButtonBuy,
 } from './CardProductsStyles';
-import ButtonBuy from '../../componentsUI/buttons/buttonBuy/ButtonBuy';
 import { useDispatch } from 'react-redux';
 import { addCart } from '../../redux/cartSlice/CartSlice';
 
@@ -20,13 +20,11 @@ const CardProduct = ({ name, img, desc, genre, price, id }) => {
 			<CardDesc>{desc}</CardDesc>
 			<p>{price}$</p>
 			<p>genero: {genre}</p>
-			<ButtonBuy>
+			<ButtonBuy
+				onClick={() => dispatch(addCart({ name, img, desc, genre, price, id }))}
+			>
 				Agregar a
-				<IconCardCart
-					onClick={() =>
-						dispatch(addCart({ name, img, desc, genre, price, id }))
-					}
-				/>
+				<IconCardCart />
 			</ButtonBuy>
 		</CardWrapper>
 	);

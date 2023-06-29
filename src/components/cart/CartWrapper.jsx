@@ -70,7 +70,10 @@ const CartWrapper = () => {
 							<p>{totalPrice + send}</p>
 						</TotalPayStyle>
 					</CartTotalWrapper>
-					<ButtonFinishBuy onClick={() => finishBuy()}>
+					<ButtonFinishBuy
+						onClick={() => finishBuy()}
+						disabled={!cartProduct.length}
+					>
 						Finalizar Compra
 					</ButtonFinishBuy>
 				</CardsWrapperStyle>

@@ -45,3 +45,24 @@ export const CardDesc = styled.p`
 	max-width: 200px;
 	text-align: center;
 `;
+
+export const ButtonBuy = styled.button`
+	padding: 10px 20px;
+	border-radius: 5px;
+	border: none;
+	background-color: #f4a82f;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	cursor: pointer;
+`;
+
+export const ButtonProducts = styled.button`
+	padding: 0.5rem 2.3rem;
+	outline: none;
+	border-radius: 10px;
+	background-color: #0070cc;
+	color: var(--light-color);
+	cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
+	font-size: 1.2rem;
+`;

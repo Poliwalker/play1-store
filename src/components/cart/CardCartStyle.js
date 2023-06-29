@@ -78,7 +78,7 @@ export const TotalPayStyle = styled.div`
 `;
 
 export const ButtonFinishBuy = styled.button`
-	background-color: var(--primary-color);
+	background-color: ${(props) => (props.disabled ? '#c2c2c2' : 'var(--primary-color)')};
 	color: #ffffff;
 	padding: 0.5rem 1rem;
 	border-radius: 5px;
@@ -86,7 +86,7 @@ export const ButtonFinishBuy = styled.button`
 	font-size: 1rem;
 	font-weight: 500;
 	font-family: 'poppins', sans-serif;
-	cursor: pointer;
+	cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
 `;
 
 export const CardCartWrapper = styled.div`

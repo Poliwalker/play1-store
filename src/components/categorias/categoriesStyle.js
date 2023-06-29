@@ -25,3 +25,5 @@ export const CategoriesContainer = styled.div`
 export const CategoriesTitle = styled.h2`
 	font-size: 15px;
 `;
+
+export const BackCategoryContainer = styled.div``;

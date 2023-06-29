@@ -1,9 +1,9 @@
 import React from 'react';
 import { ButtonSubmit } from '../../componentsUI/buttons/buttonSubmit/buttonSubmitStyle';
 import {
+	InputRegister,
 	RegisterContainer,
 	RegisterForm,
-	RegisterSubTitle,
 	RegisterTitle,
 } from './registerStyle';
 import InputForm from '../../componentsUI/inputs/InputForm';
@@ -15,9 +15,6 @@ const Register = () => {
 	return (
 		<RegisterContainer>
 			<RegisterTitle>Pagina de Registro</RegisterTitle>
-			<RegisterSubTitle>
-				para poder comprar nuestros productos create una cuenta
-			</RegisterSubTitle>
 			<Formik
 				initialValues={registerInitialValues}
 				validationSchema={registerValidationSchema}
@@ -26,9 +23,24 @@ const Register = () => {
 				}}
 			>
 				<RegisterForm>
-					<InputForm name="nombre" type="text" label="nombre" />
-					<InputForm name="email" type="email" label="Correo" />
-					<InputForm name="password" type="password" label="Contraseña" />
+					<InputRegister
+						name="nombre"
+						type="text"
+						label="nombre"
+						placeholder="ingrese un nombre"
+					/>
+					<InputForm
+						name="email"
+						type="email"
+						label="Correo"
+						placeholder="ingrese un correo"
+					/>
+					<InputForm
+						name="password"
+						type="password"
+						label="Contraseña"
+						placeholder="ingrese una contraseña"
+					/>
 					<ButtonSubmit type="submit">Registrarse</ButtonSubmit>
 				</RegisterForm>
 			</Formik>

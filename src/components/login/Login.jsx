@@ -64,7 +64,7 @@ const Login = () => {
 						<ButtonSubmit>Ingresar</ButtonSubmit>
 					</LoginForm>
 				</Formik>
-				<LinkStyleLogin to="/register">
+				<LinkStyleLogin onClick={() => dispatch(loginToggle())} to="/register">
 					no tiene usuario ¿Registrese?
 				</LinkStyleLogin>
 			</LoginWrapper>
